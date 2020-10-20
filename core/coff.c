@@ -219,10 +219,11 @@ coff_file* coff_parse(uint8_t *buf, uint32_t buflen, alloc_pool_t *parent_pool)
             _coff_buf_seek(cf->symtab_offset + (i+1)*18);
         }
         else {
-            uint8_t tmp_name[9];
+            char *tmp_name=malloc(9);
             memcpy(tmp_name, raw_symb, 8);
-            tmp_name[8] = 0;
-            cf->symbols[i].name = strdup((char*)tmp_name);
+            cf->symbols[i].name = tmp_name ;
+            free(tmp_name) ;
+            tmp_name = NULL ;
         }
         
         ptr = &raw_symb[8];
