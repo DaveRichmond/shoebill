@@ -5,3 +5,8 @@ xcuserdata
 /gui/build
 /debugger/debugger
 /debugger/debugger.dSYM
+/sdl-gui/shoebill
+*.post.c
+decoder_gen
+dis_decoder_guts.c
+inst_decoder_guts.c

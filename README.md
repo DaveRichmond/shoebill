@@ -43,6 +43,10 @@ Directories in the git repo:
 * `/sdl-gui` - a bad, slapped-together SDL-based GUI for linux/windows/macOS
 
 
+### Requirements
+
+* Ubuntu: apt-get install libsdl2-dev freeglut3-dev mesa-common-dev uuid-dev
+
 ### Building the core:
 
 The core is plain C with no external dependancies, and it should build cleanly
