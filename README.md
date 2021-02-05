@@ -13,6 +13,8 @@ Shoebill is an all-new, BSD-licensed Macintosh II emulator designed from the gro
 
 Shoebill requires a Macintosh II, IIx or IIcx ROM, and a disk image with A/UX installed.
 
+This is a rough attempt to unifty the fixes from the [https://github.com/f4ftx/shoebill](f4tx), [https://github.com/hidikal/shoebill](hidikal), and [https://github.com/JMarlin/shoebill](JMarlin) branches up until now (2020 or so). The long-term effects of doing so has not been studied.
+
 ### Supports
 * A/UX 1.1.1 through 3.1 (and 3.1.1 a little)
 
