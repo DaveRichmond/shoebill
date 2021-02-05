@@ -1,0 +1,25 @@
+
+addons:
+  apt:
+    packages:
+      - libsdl2-dev
+      - libsdl2-image-dev
+
+matrix:
+  include:
+    - os: linux
+      language: cpp
+      dist: trusty
+      compiler: gcc
+      env: BADGE=linux
+      script:
+        - cd sdl-gui
+        - make
+    - os: osx
+      language: cpp
+      env: BADGE=osx
+      script:
+        - cd core
+        - make
+        - cd ../gui
+        - set -o pipefail && xcodebuild -project Shoebill.xcodeproj -scheme Shoebill -configuration Debug -destination platform\=macOS build | xcpretty

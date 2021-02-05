@@ -27,7 +27,12 @@
 #include <assert.h>
 #include <pthread.h>
 
+#ifdef __linux__
+#include <GL/glut.h>
+#include <signal.h>
+#else
 #include <GLUT/glut.h>
+#endif
 
 #include "debugger.h"
 
@@ -156,7 +161,7 @@ static void _init_keyboard_map (void)
 
     keymap = rb_new(p_new_pool(NULL), sizeof(uint16_t));
     
-    // Letters
+    // Letters (lowercase)
     mapkey('a', 0x00);
     mapkey('b', 0x0b);
     mapkey('c', 0x08);
@@ -184,6 +189,34 @@ static void _init_keyboard_map (void)
     mapkey('y', 0x10);
     mapkey('z', 0x06);
     
+    // Letters (uppercase)
+    mapkeymod('A', 0x00, modShift);
+    mapkeymod('B', 0x0b, modShift);
+    mapkeymod('C', 0x08, modShift);
+    mapkeymod('D', 0x02, modShift);
+    mapkeymod('E', 0x0e, modShift);
+    mapkeymod('F', 0x03, modShift);
+    mapkeymod('G', 0x05, modShift);
+    mapkeymod('H', 0x04, modShift);
+    mapkeymod('I', 0x22, modShift);
+    mapkeymod('J', 0x26, modShift);
+    mapkeymod('K', 0x28, modShift);
+    mapkeymod('L', 0x25, modShift);
+    mapkeymod('M', 0x2e, modShift);
+    mapkeymod('N', 0x2d, modShift);
+    mapkeymod('O', 0x1f, modShift);
+    mapkeymod('P', 0x23, modShift);
+    mapkeymod('Q', 0x0c, modShift);
+    mapkeymod('R', 0x0f, modShift);
+    mapkeymod('S', 0x01, modShift);
+    mapkeymod('T', 0x11, modShift);
+    mapkeymod('U', 0x20, modShift);
+    mapkeymod('V', 0x09, modShift);
+    mapkeymod('W', 0x0d, modShift);
+    mapkeymod('X', 0x07, modShift);
+    mapkeymod('Y', 0x10, modShift);
+    mapkeymod('Z', 0x06, modShift);
+ 
     // Numbers
     mapkey('0', 0x1d);
     mapkey('1', 0x12);
@@ -327,15 +360,12 @@ int main (int argc, char **argv)
      * for shoebill...
      */
     config.debug_mode = 1;
-     
     config.aux_verbose = 0;
     config.ram_size = 16 * 1024 * 1024;
     config.aux_kernel_path = "/unix";
-    config.rom_path = "../../../shoebill_priv/macii.rom";
-    
-
-    config.scsi_devices[0].path = "../../../shoebill_priv/root3.img";
-    //config.scsi_devices[1].path = "../priv/marathon.img";
+    config.rom_path = "../macii.rom";
+    config.scsi_devices[0].path = "../boot.img";
+    config.scsi_devices[1].path = "../data.img";
     
     /*dbg_state.ring_len = 256 * 1024 * 1024;
     dbg_state.ring = malloc(dbg_state.ring_len);

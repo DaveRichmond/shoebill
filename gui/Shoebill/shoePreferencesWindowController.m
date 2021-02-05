@@ -218,10 +218,10 @@
         NSInteger width = [screenWidths[i] integerValue];
         NSInteger enabled = [screenEnableds[i] state];
 
-        if ((height < 342) || (height > 0xffff))
-            height = 480;
-        if ((width < 342) || (width > 0xffff))
-            width = 640;
+        if ((height < 600) || (height > 0xffff))
+            height = 600;
+        if ((width < 800) || (width > 0xffff))
+            width = 800;
         
         [defaults setInteger:height forKey:[NSString stringWithFormat:@"screenHeight%u", i]];
         [defaults setInteger:width forKey:[NSString stringWithFormat:@"screenWidth%u", i]];

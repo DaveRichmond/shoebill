@@ -488,7 +488,7 @@ char *cli_prompt_callback(EditLine *el)
 }
 
 // Hack to clear line after ^C. el_reset() screws up tty when called from the signal handler.
-void ch_reset(EditLine *el, int mclear);
+void ch_reset(EditLine *el, int mclear){}
 
 void signal_callback(int sig)
 {

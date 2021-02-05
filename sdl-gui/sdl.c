@@ -493,7 +493,7 @@ static _Bool _init_pram (void)
         if (f == NULL) {
             printf("Can't open pram_path! [%s] [errno=%s]\n",
                    user_params.pram_path,
-                   sys_errlist[errno]);
+                   strerror(errno));
             return 0;
         }
         rewind(f);

@@ -3298,7 +3298,7 @@ void inst_fpu_other () {
 void fpu_initialize()
 {
     fpu_state_t *fpu = p_calloc(shoe.pool, fpu_state_t, 1);
-    memset(fpu, sizeof(fpu_state_t), 0);
+    memset(fpu, 0, sizeof(fpu_state_t));
     shoe.fpu_state = fpu;
 }
 
