@@ -31,6 +31,7 @@
 #include <unistd.h>
 #include <errno.h>
 #include <histedit.h>
+#include <signal.h>
 
 #include "debugger.h"
 

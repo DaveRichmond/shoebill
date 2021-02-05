@@ -25,6 +25,6 @@ $CC -O1 ../core/decoder_gen.c -o decoder_gen
 ./decoder_gen inst .
 ./decoder_gen dis .
 
-cmd="$CC -ggdb -flto $files debugger.c -lpthread -lm -lGL -lglut -ledit -o debugger"
+cmd="$CC -ggdb -flto $files debugger.c debugger-glut.c -lpthread -lm -lGL -lglut -ledit -o debugger"
 echo $cmd
 $cmd

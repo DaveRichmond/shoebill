@@ -19,9 +19,7 @@ else
 endif
 
 debugger: make_core
-ifneq ($(OS), Linux)
 	$(MAKE) -C debugger
-endif
 
 make_core:
 	$(MAKE) -C core -j 4

@@ -45,7 +45,7 @@ Directories in the git repo:
 
 ### Requirements
 
-* Ubuntu: apt-get install libsdl2-dev freeglut3-dev mesa-common-dev uuid-dev
+* Ubuntu: apt-get install libsdl2-dev freeglut3-dev mesa-common-dev uuid-dev libedit-dev
 
 ### Building the core:
 
