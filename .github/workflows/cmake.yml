@@ -5,9 +5,15 @@ env:
   BUILD_TYPE: Release
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix: 
+        include:
+          - os: ubuntu-latest
+          - os: windows-latest
     steps:
       - name: Install prerequisites
+        if: runner.os == 'Linux'
         run: sudo apt install -y libsdl2-dev uuid-dev
       - uses: actions/checkout@v2
       - name: Create Build environment
