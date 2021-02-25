@@ -1,0 +1,22 @@
+name: CMake
+on: [push]
+
+env:
+  BUILD_TYPE: Release
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install prerequisites
+        run: sudo apt install -y libsdl2-dev uuid-dev
+      - uses: actions/checkout@v2
+      - name: Create Build environment
+        run: cmake -E make_directory ${{github.workspace}}/build
+      - name: Configure CMake
+        shell: bash
+        working-directory: ${{github.workspace}}/build
+        run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE
+      - name: Build
+        working-directory: ${{github.workspace}}/build
+        shell: bash
+        run: cmake --build . --config $BUILD_TYPE
